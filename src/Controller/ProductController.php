@@ -24,7 +24,7 @@ class ProductController
     public function create()
     {
        $productModel = new ProductModel();
-        $creatProduct = $productModel->СreatProduct();
+        $creatProduct = $productModel->creatProduct();
         if ($creatProduct == false) {
             $router = new Router();
             $router->redirectToProductTable('Продукт уже существует');
@@ -37,12 +37,12 @@ class ProductController
     public function getDataForupdate()
     {
         $productModel = new ProductModel();
-        $products = $productModel->GetProductForUpdate();
+        $products = $productModel->getProductForUpdate();
         require_once __DIR__ . '/../View/product/FormForUpdateMVC.php';
     }
     public function update() {
         $productModel = new ProductModel();
-        $productModel->UpdateProduct();
+        $productModel->updateProduct();
         $router = new Router();
         $router->redirectToProductTable('Продукт обновлен');
 

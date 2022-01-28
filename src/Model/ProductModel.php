@@ -22,7 +22,7 @@ class ProductModel
         return $database->getProducts($_GET['category']);
     }
 
-    public function GetdataForCreate($data)
+    public function getdataForCreate($data)
     {
         $product = [
             'name' => $data['name'],
@@ -33,32 +33,32 @@ class ProductModel
         return $product;
     }
 
-    public function СreatProduct()
+    public function creatProduct()
     {
-        $productArray = $this->GetdataForCreate($_POST);
+        $productArray = $this->getdataForCreate($_POST);
         $database = new Database();
 
-        if ($database->GetProduct($productArray['name'], $productArray['category'])) {
+        if ($database->getProduct($productArray['name'], $productArray['category'])) {
             return false;
         }
-        $database->CreatProduct($productArray['name'], $productArray['category'], $productArray['sku'], $productArray['price'], $productArray['quantity']);
+        $database->creatProduct($productArray['name'], $productArray['category'], $productArray['sku'], $productArray['price'], $productArray['quantity']);
          return true;
     }
-    public function GetProductForUpdate() {
+    public function getProductForUpdate() {
     $database = new Database();
    return $database->getProductForUpdate($_GET['name']);
     }
 
-    public function UpdateProduct()
+    public function updateProduct()
     {
-        $productArray = $this->GetdataForCreate($_POST);
+        $productArray = $this->getdataForCreate($_POST);
         $database = new Database();
-        $database->UpdateProdact($productArray['name'], $productArray['category'], $productArray['sku'], $productArray['price'], $productArray['quantity']);
+        $database->updateProdact($productArray['name'], $productArray['category'], $productArray['sku'], $productArray['price'], $productArray['quantity']);
 
     }
     public function deleteProduct() {
         $database = new Database();
-        $database->DeleteProduct($_GET['name'], $_GET['category']);
+        $database->deleteProduct($_GET['name'], $_GET['category']);
     }
 
 

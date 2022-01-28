@@ -34,7 +34,7 @@ class Database
         return $statement->fetchAll();
     }
 
-    public function CreatProduct($name, $category, $sku, $price, $quantity)
+    public function creatProduct($name, $category, $sku, $price, $quantity)
     {
         $newProduct = $this->connection->prepare('INSERT INTO products (name , category, sku, price, quantity)
  values ( :name , :category, :sku, :price, :quantity);');
@@ -46,7 +46,7 @@ class Database
             ':quantity' => $quantity]);
     }
 
-    public function DeleteProduct($name, $category)
+    public function deleteProduct($name, $category)
     {
         $productDelete = $this->connection->prepare('Delete from products
         where name = :name and category = :category');
@@ -55,7 +55,7 @@ class Database
             ':category' => $category]);
     }
 
-    public function UpdateProdact($name, $category, $sku, $price, $quantity)
+    public function updateProdact($name, $category, $sku, $price, $quantity)
     {
         $productUpdated = $this->connection->prepare('UPDATE products SET price = :price, sku = :sku, quantity = :quantity
         where name = :name and category = :category');
@@ -76,7 +76,7 @@ class Database
         }
     }
 
-    public function GetProduct($name, $category)
+    public function getProduct($name, $category)
     {
         $getProducts = $this->connection->prepare('SELECT * from products where name = :name and category = :category');
         $getProducts->execute(
@@ -94,7 +94,7 @@ class Database
         return $statement->fetchAll();
     }
 
-    public function CreatUser($user_login, $user_password)
+    public function creatUser($user_login, $user_password)
     {
         $newUser = $this->connection->prepare('INSERT INTO Users ( user_login, user_password, user_hash)
  values ( :user_login , :user_password, :user_hash);');
@@ -107,7 +107,7 @@ class Database
         );
     }
 
-    public function GetUser($name, $email)
+    public function getUser($name, $email)
     {
         $user = $this->connection->query('SELECT * FROM users WHERE user_login ="' . $name . '" AND user_password = "' . $email . '";');
         return $user->fetch();

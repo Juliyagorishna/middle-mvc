@@ -44,9 +44,9 @@ foreach ($products as $valueProduct) {
 if ($_GET['message']) {
     echo $_GET['message'];
 }
-    if ($user != 0) {
-        echo
-'<form method="post" action="index.php?action=creat-product" target="_blank">
+    if ($user != 0): ?>
+
+<form method="post" action="index.php?action=creat-product" target="_blank">
 <label>
         Name
         <input type="text" name="name"/>
@@ -67,10 +67,9 @@ if ($_GET['message']) {
         Quantity
         <input type="text" name="quantity"/>
     </label><br>
-   <input type="submit" Создать новый продукт</>
-   </form>';
-}
-    ?>
+   <input type="submit" value="Создать новый продукт" />
+</form>
+<?php endif; ?>
 </body>
 </html>
 

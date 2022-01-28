@@ -17,7 +17,7 @@ class UserModel
     public function getUserForLogin() : ?array
     {
         $database = new Database();
-        return $database->GetUser($_POST['name'], $_POST['email']);
+        return $database->getUser($_POST['name'], $_POST['email']);
     }
     public function saveCookie(string $userLogin) :void
     {
